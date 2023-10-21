@@ -1,0 +1,74 @@
+
+.playerWrapper {
+    width: "100%";
+    height: "100%";
+    position: relative;
+    left: 250;
+}
+.controlsWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+.controlIcons{
+    /* top: 10px;
+    left: 406px; */
+    color: #777;
+    font-size: 100px;
+    transform: scale(3);
+}
+.controlIcons:hover{
+    color: #fff;
+    transform: scale(3.1);
+}
+.bottomIcon{
+    color: #999;
+
+}
+.bottomIcon:hover{
+    color: #fff;
+}
+.VolumeSlider{
+    width: 100;
+}
+.StudentHomePage{
+    margin-top: 50px;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+.DonutChart {
+    font-family: sans-serif;
+    text-align: center;
+}
+.LoginPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.TextfieldBorderRadius .MuiOutlinedInput-root{
+    border-radius: 30px;
+    height: 40px;
+}
+.TextfieldBorderRadiusInfo .MuiOutlinedInput-root{
+    border-radius: 30px;
+}
+.HeaderBar{
+    background-color: #FAF8F8;
+}
+.BackgroundApp{
+    background-color: #FFCC70;
+}
+.ColorTheme{
+    color: #1A2B97;
+}
+.ImgAvatar{
+    border-radius: 50%;
+}
