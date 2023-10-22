@@ -35,8 +35,9 @@ services:
     depends_on:
       - db
   react:
+    stdin_open: true
+    tty: true
     build: ./react
     container_name: react_app
     ports:
       - "3000:3000"
-    stdin_open: true
