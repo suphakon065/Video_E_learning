@@ -56,4 +56,5 @@ services:
       - video_e_learning_default  
 
 networks:
-  video_e_learning_default:  
+  video_e_learning_default:
+    driver: bridge
