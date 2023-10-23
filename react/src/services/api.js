@@ -3,7 +3,7 @@ import Servicesconfig from '../Storage/servicesConfig';
 import config from '../Storage/config';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'http://php-apache/api',
   // Other configuration options
 });
 
