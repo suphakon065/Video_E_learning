@@ -3,7 +3,7 @@ import Servicesconfig from '../Storage/servicesConfig';
 import config from '../Storage/config';
 
 const api = axios.create({
-  baseURL: 'https://vel063.comsciproject.net/api',
+  baseURL: 'https://localhost:8080/api',
   // Other configuration options
 });
 
