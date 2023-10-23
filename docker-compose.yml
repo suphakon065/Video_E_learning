@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  php-apache-environment:
+  php-apache:
     container_name: php-apache
     build: 
       context: ./php
@@ -12,6 +12,9 @@ services:
       - ./php/src:/var/www/html/
     ports:
       - 8080:80
+    networks:
+      - video_e_learning_default  
+
   db:
     container_name: db
     image: mysql
@@ -25,6 +28,9 @@ services:
       - "./database:/docker-entrypoint-initdb.d"
     ports:
       - "9906:3306"
+    networks:
+      - video_e_learning_default  
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -34,6 +40,9 @@ services:
       PMA_HOST: db
     depends_on:
       - db
+    networks:
+      - video_e_learning_default 
+
   react:
     stdin_open: true
     tty: true
@@ -43,3 +52,8 @@ services:
       - "3000:3000"
     volumes:
       - ./react/src:/var/www/html/
+    networks:
+      - video_e_learning_default  
+
+networks:
+  video_e_learning_default:  
