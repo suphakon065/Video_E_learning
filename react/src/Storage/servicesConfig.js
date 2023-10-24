@@ -1,3 +1,4 @@
+const hostname = window.location.hostname;
 const Servicesconfig = {
     getAllStudents: `/user.php`,
     getAllSubjects: `/subject.php/`,
@@ -14,8 +15,8 @@ const Servicesconfig = {
     DeleteSubjectInstudentRequest: `/studentREQUEST.php/`,
     DeleteStudentInClass: `/studentSUBJECT.php/`,
     postInsertStudentInRequest: `/studentREQUEST.php/Request/`,
-    getImageProfile: `http://php-apache/users/`,
-    getImageQuest: `http://php-apache/uploads/`,
+    getImageProfile: `http://`+hostname+`:8080/users/`,
+    getImageQuest: `http://`+hostname+`:8080/uploads/`,
     getStudentSubject: `/studentSUBJECT.php/getStudentSJ/`,
     getvideo: `/studentASSIGNMENT.php/teacherGetAssignment/`,
     deleteVideo: `/video.php/`,
