@@ -146,25 +146,14 @@ const VideoControl = forwardRef(({
                                         {muted ? <VolumeOffIcon fontSize="medium" /> : <VolumeUpIcon fontSize="medium" />}
                                     </IconButton>
                                 </Grid>
-                                
-                                {/* <Grid item xs>
-                                    <Slider
-                                        sx={{color: "#fff"}}
-                                        min={0}
-                                        max={100}
-                                        value={volume * 100}
-                                        onChange={onVolumechange}
-                                        onChangeCommitted={onVolumeSeekUp}
-                                    />
-                                </Grid> */}
                             </Grid>
                         </Grid>
                         <Grid item sx={VideoControlGridPlayBarStyles}>
                             <Grid container spacing={2} sx={VideoControlGridContainerPlayTimeStyles}>
-                                <Grid item>
+                                <Grid item xs={4} sm={1} md={1} lg={1} xl={1}>
                                     <Typography sx={VideoControlMediaToolsBarStyles}>{elapsedTime}</Typography>
                                 </Grid>
-                                <Grid item xs={true}>
+                                <Grid item xs={6} sm={10} md={10} lg={10} xl={10}>
                                     <Slider
                                         sx={VideoControlMediaPlayBarStyles}
                                         valueLabelDisplay="auto"
@@ -177,7 +166,7 @@ const VideoControl = forwardRef(({
                                         onChangeCommitted={onSeekMouseUp}
                                     />
                                 </Grid>
-                                <Grid item>
+                                <Grid item xs={2} sm={1} md={1} lg={1} xl={1}>
                                     <Typography sx={VideoControlMediaToolsBarStyles}>{totalDuration}</Typography>
                                 </Grid>
                             </Grid>
