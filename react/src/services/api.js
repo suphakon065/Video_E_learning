@@ -525,3 +525,27 @@ export const postUpdateVideoQuiz = async (Vid,JsonData) => {
     throw error;
   }
 };
+export const GetVideoDataEdit = async (Vid) => {
+  try{
+    const response = await api.get(Servicesconfig.getVideoDataEdit+Vid);
+    return response.data;
+  }catch (error) {
+    throw error;
+  }
+};
+export const DeleteQuest = async (QuestId) => {
+  try{
+    const response = await api.delete(Servicesconfig.deleteQuestion + QuestId);
+    return response.data;
+  }catch (error) {
+    throw error;
+  }
+};
+export const PostVideoQuiz = async (SjId,JsonData) => {
+  try{
+    const response = await api.post(Servicesconfig.postVideoQuiz+SjId, JsonData);
+    return response.data;
+  }catch (error) {
+    throw error;
+  }
+};
