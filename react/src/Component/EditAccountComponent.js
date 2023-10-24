@@ -17,7 +17,7 @@ import { indigo } from "@mui/material/colors";
 import config from "../Storage/config";
 import Servicesconfig from "../Storage/servicesConfig";
 import { EditUser, EditUserImg } from "../services/api";
-import { EditAccountAvatarStyles, EditAccountBoxStyles, EditAccountButtonStyles, EditAccountFormControlPasswordStyles, EditAccountGridAllContentStyles, EditAccountGridButtonStyles, EditAccountGridHeadStyles, EditAccountGridIDStyles, EditAccountGridMidSpaceStyles, EditAccountGridNameStyles, EditAccountGridNewPasswordStyles, EditAccountGridPasswordStyles, EditAccountGridsubtltleStyles, EditAccountInputAdornmentStyles, EditAccountSaveIconStyles, EditAccountTypographyBlankStyles, EditAccountTypographySubtitleStyles, EditAccountTypographyTitleStyles } from "./Styles/EditAccountPageStyles";
+import { EditAccountAvatarStyles, EditAccountBoxStyles, EditAccountButtonStyles, EditAccountFormControlPasswordStyles, EditAccountGridAllContentStyles, EditAccountGridButtonStyles, EditAccountGridHeadStyles, EditAccountGridIDStyles, EditAccountGridMidSpaceStyles, EditAccountGridNameStyles, EditAccountGridNewPasswordStyles, EditAccountGridPasswordStyles, EditAccountGridsubtltleStyles, EditAccountInputAdornmentStyles, EditAccountInputInputStyles, EditAccountSaveIconStyles, EditAccountTypographyBlankStyles, EditAccountTypographySubtitleStyles, EditAccountTypographyTitleStyles } from "./Styles/EditAccountPageStyles";
 
 const EditAccount = () =>{
     const location = useLocation();
@@ -114,14 +114,14 @@ const EditAccount = () =>{
                                 Edit Account
                             </Typography>
                         </Grid>
-                        <Grid xs={4}>
+                        <Grid xs={5} sm={4} md={4} lg={4} xl={4}>
                             <Avatar
                                 alt="Remy Sharp"
                                 src={Img}
                                 sx={EditAccountAvatarStyles}
                             />
                         </Grid>
-                        <Grid xs={7}>
+                        <Grid xs={7} sm={8} md={8} lg={8} xl={8}>
                             <Grid container>
                                 <Typography variant="subtitle1" sx={EditAccountTypographySubtitleStyles}>
                                     &nbsp;Image
@@ -142,15 +142,16 @@ const EditAccount = () =>{
                     </Grid>
                     
                     <Grid container sx={EditAccountGridIDStyles}>
-                        <Grid item xs={4}>
-                            <Typography variant="subtitle2" sx={EditAccountTypographyBlankStyles}>
-                                &nbsp;
-                            </Typography>
-                            <Typography variant="subtitle1" sx={EditAccountTypographySubtitleStyles}>
+                        <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                            {/* <Typography variant="caption" sx={EditAccountTypographyBlankStyles}>&nbsp;</Typography> */}
+                            <Typography 
+                                variant="subtitle1" 
+                                sx={EditAccountTypographySubtitleStyles}
+                            >
                                 student ID
                             </Typography>
                         </Grid>
-                        <Grid item xs={8} sx={EditAccountGridMidSpaceStyles}>
+                        <Grid item xs={12} sm={8} md={8} lg={8} xl={8} sx={EditAccountGridMidSpaceStyles}>
                             <TextField 
                                 disabled
                                 fullWidth
@@ -160,19 +161,19 @@ const EditAccount = () =>{
                                 className='TextfieldBorderRadius'
                                 placeholder='Student ID' 
                                 type={'text'} 
-                                sx={EditAccountInputAdornmentStyles}
+                                sx={EditAccountInputInputStyles}
                                 onChange={handleChange}
                                 size={"small"}
                             />
                         </Grid>
                     </Grid>
                     <Grid container sx={EditAccountGridNameStyles}>
-                        <Grid item xs={4} sx={EditAccountGridsubtltleStyles}>
-                            <Typography variant="subtitle2" sx={EditAccountTypographySubtitleStyles}>
+                        <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                            <Typography variant="subtitle1" sx={EditAccountTypographySubtitleStyles}>
                                 Name
                             </Typography>
                         </Grid>
-                        <Grid item xs={8} sx={EditAccountGridMidSpaceStyles}>
+                        <Grid item xs={12} sm={8} md={8} lg={8} xl={8} sx={EditAccountGridMidSpaceStyles}>
                             <TextField
                                 fullWidth
                                 margin="normal"
@@ -181,20 +182,20 @@ const EditAccount = () =>{
                                 className='TextfieldBorderRadius' 
                                 placeholder='Student ID' 
                                 type={'text'} 
-                                sx={EditAccountInputAdornmentStyles}
+                                sx={EditAccountInputInputStyles}
                                 onChange={handleChange}
                                 size={"small"}
                             />
                         </Grid>
                     </Grid>
                     <Grid container sx={EditAccountGridPasswordStyles}>
-                        <Grid item xs={4}>
-                            <Typography variant="caption" textAlign="left">&nbsp;</Typography>
+                        <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                            {/* <Typography variant="caption" textAlign="left">&nbsp;</Typography> */}
                             <Typography variant="subtitle1" sx={EditAccountTypographySubtitleStyles}>
                                 Password
                             </Typography>
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={12} sm={8} md={8} lg={8} xl={8} >
                             <FormControl sx={EditAccountFormControlPasswordStyles} variant="outlined">
                                 <OutlinedInput
                                     id="outlined-adornment-password"
@@ -220,13 +221,13 @@ const EditAccount = () =>{
                         </Grid>
                     </Grid>
                     <Grid container sx={EditAccountGridNewPasswordStyles}>
-                        <Grid item xs={4}>
-                            <Typography variant="caption" textAlign="left">&nbsp;</Typography>
-                            <Typography variant="subtitle1" sx={EditAccountTypographySubtitleStyles}>
+                        <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                            {/* <Typography variant="caption" textAlign="left">&nbsp;</Typography> */}
+                            <Typography variant="subtitle2" sx={EditAccountTypographySubtitleStyles}>
                                 New Password
                             </Typography>
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={12} sm={8} md={8} lg={8} xl={8} >
                             <FormControl sx={EditAccountFormControlPasswordStyles} variant="outlined">
                                 <OutlinedInput
                                     id="outlined-adornment-password"
