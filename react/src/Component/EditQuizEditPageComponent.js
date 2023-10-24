@@ -20,6 +20,7 @@ import axios from 'axios';
 import { indigo } from '@mui/material/colors';
 import { CreeateQuizBoxStyles, CreeateQuizFabPlusButtonStyles, CreeateQuizFormControllStyles, CreeateQuizGridBodyStyles, CreeateQuizGridCoiseStyles, CreeateQuizGridCrossStyles, CreeateQuizGridInputStyles, CreeateQuizGridPlusButtonStyles, CreeateQuizGridQuizTypeStyles, CreeateQuizGridStyles, CreeateQuizGridblankStyles, CreeateQuizQuizNameStyles, CreeateQuizSaveButtonStyles, CreeateQuizSubTitleStyles, CreeateQuizTypographySaveButtonStyles, CreeateQuizTypographySubTitleStyles, CreeateQuizTypographyTitleStyles, CreeateQuizTypographycaptionStyles, CreeateQuizblankStyles, CreeateQuizpaperBodyStyles, CreeateQuizpaperStyles } from './Styles/CreateQuizPageStyles';
 import Servicesconfig from '../Storage/servicesConfig';
+import { DeleteQuest } from '../services/api';
 
 
 function EditQuizEditPage(props) {
@@ -330,15 +331,12 @@ const handleChangeImg = (e,i) =>{
                     <>
                       <Grid item xs={8} lg={11} sx={CreeateQuizblankStyles}></Grid>
                       <Grid item xs={1} sx={CreeateQuizGridCrossStyles}>
-                          <FormControl onClick={()=>{
+                          <FormControl onClick={async()=>{
                             const quest = [...question]
                             quest.splice(datas.i,1);
                             setQuestion(quest);
-                            axios.delete(`https://vel063.comsciproject.net/api/question.php/${element.Qid}`).then(function (response){
-                              console.log('res: ',response, element.Qid);
-                            }).catch(function (error){
-                              console.log(error);
-                            });
+                            const deleteQuestionService = await DeleteQuest(element.Qid);
+                            console.log('DeleteQuest: ',element.Qid,' ',deleteQuestionService);
                           }}>
                               <IconButton aria-label="delete">
                                   <CloseIcon fontSize='small' />
