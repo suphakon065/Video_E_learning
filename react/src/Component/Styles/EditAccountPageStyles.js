@@ -28,8 +28,8 @@ export const EditAccountGridHeadStyles = {
 }
 
 export const EditAccountGridIDStyles = {
-    paddingleft: 3, 
-    paddingBottom: 2, 
+    paddingleft: {xs:0,sm:3,md:3,lg:3,xl:3}, 
+    paddingBottom: {xs:0,sm:2,md:2,lg:2,xl:2}, 
     paddingRight: 5
 }
 
@@ -39,23 +39,23 @@ export const EditAccountGridsubtltleStyles = {
 
 
 export const EditAccountGridNameStyles = {
-    paddingleft: 3, 
-    paddingBottom: 2, 
+    paddingleft: {xs:0,sm:3,md:3,lg:3,xl:3}, 
+    paddingBottom: {xs:0,sm:2,md:2,lg:2,xl:2}, 
     paddingRight: 5
 }
 
 export const EditAccountGridPasswordStyles = {
-    paddingleft: 3,
-    paddingBottom: 2
+    paddingleft: {xs:0,sm:3,md:3,lg:3,xl:3},
+    paddingBottom: {xs:0,sm:2,md:2,lg:2,xl:2}
 }
 
 export const EditAccountGridNewPasswordStyles = {
-    paddingleft: 2,
-    paddingBottom: 2
+    paddingleft: {xs:0,sm:2,md:2,lg:2,xl:2},
+    paddingBottom: {xs:0,sm:2,md:2,lg:2,xl:2}
 }
 
 export const EditAccountGridMidSpaceStyles = {
-    paddingLeft: 2.5
+    paddingLeft: {xs:0,sm:2.5,md:2.5,lg:2.5,xl:2.5},
 }
 
 export const EditAccountGridButtonStyles = {
@@ -71,6 +71,7 @@ export const EditAccountTypographyTitleStyles = {
 }
 
 export const EditAccountTypographySubtitleStyles = {
+    paddingTop: 3,
     fontWeight: 'bold',
     textAlign: "left"
 }
@@ -103,4 +104,15 @@ export const EditAccountSaveIconStyles = {
 
 export const EditAccountInputAdornmentStyles = {
     borderRadius:10
+
+}
+export const EditAccountInputInputStyles ={
+    borderRadius:10,
+    width: {
+        xs:250,
+        sm:235,
+        md:235,
+        lg:205,
+        xl:205,
+    }
 }
