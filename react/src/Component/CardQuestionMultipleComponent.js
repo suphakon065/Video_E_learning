@@ -107,6 +107,21 @@ function CardQuestionMultiple(prop) {
         }else{
             return(
                 <Grid container paddingBottom={3}>
+                    <Grid item xs={12}>
+                        {PIC !== null?
+                            <Grid container style={{alignItems: 'center',marginBottom: 20}}>
+                            <Grid xs={3}></Grid>
+                            <Grid xs={6} align={'center'}>
+                                <img 
+                                src={Servicesconfig.getImageQuest+PIC.toLowerCase()}
+                                alt={Servicesconfig.getImageQuest+PIC.toLowerCase()}
+                                width='100%'
+                                height='50%'
+                                />
+                            </Grid>
+                            </Grid>:null
+                        }
+                    </Grid>
                     <Grid item xs={12} paddingBottom={1}>
                         <FormLabel>
                             {Question}
