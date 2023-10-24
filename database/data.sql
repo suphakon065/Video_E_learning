@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2023 at 05:10 PM
+-- Generation Time: Oct 24, 2023 at 07:35 PM
 -- Server version: 10.5.19-MariaDB-cll-lve
 -- PHP Version: 8.2.5
 
@@ -47,7 +47,12 @@ INSERT INTO `assignment` (`Aid`, `Vid`, `Aname`, `NumQuests`, `startTime`, `endT
 (105, 160, 'webDEV03', 4, 60, 120, 1800),
 (168, 196, 'Quiz01-แบบฝึกหัดก่อนเรียน', 3, 0, 60, 300),
 (169, 196, 'Quiz02-แบบฝึกหัดระหว่างเรียน', 4, 120, 180, 300),
-(170, 203, 'test', 2, 60, 120, 240);
+(172, 198, 'OOP-Quiz01-แบบฝึกหัดก่อนเรียน', 4, 0, 60, 180),
+(173, 198, 'OOP-Quiz02-แบบฝึกหัดท้ายบท', 2, 180, 240, 180),
+(174, 199, 'Quiz01-แบบฝึกหัดก่อนเรียน', 4, 0, 60, 180),
+(175, 199, 'Quiz02-แบบฝึกหัดระหว่างเรียน', 2, 120, 180, 120),
+(176, 200, 'Quiz01-แบบฝึกหัดก่อนเรียน', 2, 0, 60, 180),
+(177, 200, 'Quiz02-แบบฝึกหัดระหว่างเรียน', 3, 120, 180, 300);
 
 -- --------------------------------------------------------
 
@@ -77,10 +82,9 @@ INSERT INTO `evideo` (`Vid`, `SJid`, `Vname`, `Vlink`, `Enddate`, `Vinfo`, `Vtyp
 (197, '1204208', 'OOP-Lec01-Object คืออะไร', 'https://youtu.be/O74C1rl9J1s?si=Zj18F3Ck2BuMLsmB', '2023-10-26', 'Object Oriented Programming Lecture01 สอนเกี่ยวกับความหมายของ Object ว่าคืออะไร?', 0),
 (198, '1204208', 'OOP-Lec01-ความสัมพันธ์ระหว่าง Class และ Object', 'https://youtu.be/phUUK380T1A?si=APEVYqPYwkuinyIx', '2023-10-26', 'Object Oriented Programming Lecture 1 สอนเกี่ยวกับ ความสัมพันธ์ระหว่าง Class และ Object', 1),
 (199, '1204304', 'WebDev-Grid Bootstrap', 'https://youtu.be/L7MktCJwl5Q?si=248j3Yv6FsG0dZKu', '2023-10-26', 'Web development สอนการใช้งาน Grid ของ Bootstrap', 1),
-(200, '1204304', 'WebDev-Request form', 'https://youtu.be/PaVpX_HGz_8?si=QQlj-N-MA4EMAVCp', '2023-10-26', 'Web development สอนเรื่อง Request form', 1),
-(201, '1204311', 'APD-EF Database Connection', 'https://youtu.be/BCNDSRsFBEc?si=YxB_WA8Xb7d-xDgz', '2023-10-26', 'Application Program Development สอนการใช้ EF Database Connection', 1),
+(200, '1204304', 'WebDev-Request form', 'https://youtu.be/PaVpX_HGz_8?si=QQlj-N-MA4EMAVCp', '2023-10-27', 'Web development สอนเรื่อง Request form', 1),
+(201, '1204311', 'APD-EF Database Connection', 'https://youtu.be/BCNDSRsFBEc?si=YxB_WA8Xb7d-xDgz', '2023-10-26', 'Application Program Development สอนการใช้ EF Database Connection', 0),
 (202, '1204311', 'APD-Read QR Code', 'https://youtu.be/AEvzyLOewdA?si=QE2JjXiuWGAa9OZk', '2023-10-26', 'Application Program Development สอนเกี่ยวกับการใช้งานฟังก์ชันอ่าน QR Code ', 1),
-(203, '1204304', 'test', 'https://www.youtube.com/watch?v=mVqOB3KcfoA', '2023-10-16', 'sdlkfjlashgoshgsdf', 1),
 (204, '1203120', 'test', '', '2023-10-02', '', 0),
 (205, '1203120', 'test', 'https://www.youtube.com/watch?v=mVqOB3KcfoA', '2023-10-02', '64948', 0);
 
@@ -129,8 +133,31 @@ INSERT INTO `question` (`Qid`, `Aid`, `Question`, `PIC`, `Qtype`, `A`, `B`, `C`,
 (618, 169, 'ข้อใดคือหลักการทำงานแบบพ้องรูป', NULL, 1, 'information hiding', 'polymorphism', 'inheritance', 'encapsulation', '', 'B'),
 (619, 169, 'ข้อใดต่อไปนี้คือ method ของ นักศึกษา', NULL, 1, 'ลงทะเบียน', 'ชื่อนักศึกษา', 'รหัสนักศึกษา', 'สาขา', 'อายุนักศึกษา', 'A'),
 (620, 169, 'ข้อใดต่อไปนี้ไม่ใช่ attribute ของพัดลม', NULL, 1, 'ใบพัด', 'มอเตอร์', 'ปุ่ม', 'สายไฟ', 'พัดลมสามารถเปิดได้', 'E'),
-(621, 170, '11', NULL, 0, '11', '11', '11', '11', '11', ''),
-(622, 170, '11', NULL, 1, '11', '11', '11', '11', '22', 'A');
+(636, 172, 'Class หนึ่งสามารถสร้างได้กี่ Object', NULL, 1, 'ไม่ได้', '1', 'กี่Objectก็ได้', '2', 'ถูกทุกข้อ', 'C'),
+(637, 172, 'ข้อใดไม่ใช่ข้อมูลชนิดตัวเลข (Number)', NULL, 1, 'num = 10', 'grade = 3.5', 'result = -1', 'size = 2x', 'num = 10', 'C'),
+(638, 172, 'ข้อใดไม่ใช่ข้อมูลชนิด Sequence', NULL, 1, 'string', 'tuple', 'list', 'set', 'boolean', 'D'),
+(639, 172, 'ข้อใดไม่ใช่ข้อมูลขนิด String', NULL, 1, 'msg = \"Python Programming\"', 'grade = \'A\'', 'number = \'50\'', 'score = 10', 'boolean=\'true\'', 'D'),
+(640, 172, 'str = [\"Oraya\",45,“Thungsong\",\'B\',\"\"]คือข้อมูลชนิดใด ', NULL, 1, 'list', 'set', 'tuple', 'string', 'number', 'A'),
+(641, 174, 'การเขียนโปรแกรมด้วยภาษา HTML นั้นจะต้องขึ้นต้น และลงท้ายด้วยคำสั่งในข้อใด', NULL, 1, '<html>… </html>', '[title]… [/title]', '<begin>… </begin>', '[head]…. [/head]', 'ถูกทุกข้อ', 'A'),
+(642, 174, 'คำสั่ง <Title> ... </Title> ใช้สำหรับระบุเกี่ยวกับเอกสาร HTMLในส่วนใด', NULL, 1, 'เนื้อหาของเอกสาร', 'ส่วนหัวหรือชื่อเรื่องของเอกสาร', 'ส่วนย่อหน้าของเอกสาร', 'ส่วนคำสั่งของเอกสาร', 'ผิดทุกข้อ', 'B'),
+(643, 174, 'ข้อใดคือนามสกุลของไฟล์ข้อมูลเอกสารภาษา HTML ที่สามารถแสดงผลผ่านระบบเครือข่ายอินเทอร์เน็ต', NULL, 1, '.html', '.txt', '.doc', '.gif', '.jpg', 'A'),
+(644, 174, 'ในภาษา HTMLคำสั่งใดที่เขียนเป็นบรรทัดแรก', NULL, 1, '<HTML>', '<TITLE>', '<BODY>', '<HEAD>', '</HTML>', 'A'),
+(645, 174, 'คำสั่งในข้อใดเป็นคำสั่งที่ใช้สำหรับขึ้นบรรทัดใหม่ในการแสดงผลข้อมูล', NULL, 1, '<ins>', '<tr>', '<b>', '<br>', '<a>', 'D'),
+(646, 175, 'การเขียนโปรแกรมด้วยภาษา HTML นั้นจะต้องขึ้นต้น และลงท้ายด้วยคำสั่งในข้อใด', NULL, 1, '<html>… </html>', '[title]… [/title]', '<begin>… </begin>', '[head]…. [/head]', 'ถูกทุกข้อ', 'A'),
+(647, 175, 'คำสั่ง <Title> ... </Title> ใช้สำหรับระบุเกี่ยวกับเอกสาร HTMLในส่วนใด', NULL, 1, 'เนื้อหาของเอกสาร', 'ส่วนหัวหรือชื่อเรื่องของเอกสาร', 'ส่วนย่อหน้าของเอกสาร', 'ส่วนคำสั่งของเอกสาร', 'ผิดทุกข้อ', 'B'),
+(648, 175, 'ข้อใดคือนามสกุลของไฟล์ข้อมูลเอกสารภาษา HTML ที่สามารถแสดงผลผ่านระบบเครือข่ายอินเทอร์เน็ต', NULL, 1, '.html', '.txt', '.doc', '.gif', '.jpg', 'A'),
+(649, 175, 'ในภาษา HTMLคำสั่งใดที่เขียนเป็นบรรทัดแรก', NULL, 1, '<HTML>', '<TITLE>', '<BODY>', '<HEAD>', '</HTML>', 'A'),
+(650, 175, 'คำสั่งในข้อใดเป็นคำสั่งที่ใช้สำหรับขึ้นบรรทัดใหม่ในการแสดงผลข้อมูล', NULL, 1, '<ins>', '<tr>', '<b>', '<br>', '<a>', 'D'),
+(651, 176, 'การเขียนโปรแกรมด้วยภาษา HTML นั้นจะต้องขึ้นต้น และลงท้ายด้วยคำสั่งในข้อใด', NULL, 1, '<html>… </html>', '[title]… [/title]', '<begin>… </begin>', '[head]…. [/head]', 'ถูกทุกข้อ', 'A'),
+(652, 176, 'คำสั่ง <Title> ... </Title> ใช้สำหรับระบุเกี่ยวกับเอกสาร HTMLในส่วนใด', NULL, 1, 'เนื้อหาของเอกสาร', 'ส่วนหัวหรือชื่อเรื่องของเอกสาร', 'ส่วนย่อหน้าของเอกสาร', 'ส่วนคำสั่งของเอกสาร', 'ผิดทุกข้อ', 'B'),
+(653, 176, 'ข้อใดคือนามสกุลของไฟล์ข้อมูลเอกสารภาษา HTML ที่สามารถแสดงผลผ่านระบบเครือข่ายอินเทอร์เน็ต', NULL, 1, '.html', '.txt', '.doc', '.gif', '.jpg', 'A'),
+(654, 176, 'ในภาษา HTMLคำสั่งใดที่เขียนเป็นบรรทัดแรก', NULL, 1, '<HTML>', '<TITLE>', '<BODY>', '<HEAD>', '</HTML>', 'A'),
+(655, 176, 'คำสั่งในข้อใดเป็นคำสั่งที่ใช้สำหรับขึ้นบรรทัดใหม่ในการแสดงผลข้อมูล', NULL, 1, '<ins>', '<tr>', '<b>', '<br>', '<a>', 'D'),
+(656, 177, 'การเขียนโปรแกรมด้วยภาษา HTML นั้นจะต้องขึ้นต้น และลงท้ายด้วยคำสั่งในข้อใด', NULL, 1, '<html>… </html>', '[title]… [/title]', '<begin>… </begin>', '[head]…. [/head]', 'ถูกทุกข้อ', 'A'),
+(657, 177, 'คำสั่ง <Title> ... </Title> ใช้สำหรับระบุเกี่ยวกับเอกสาร HTMLในส่วนใด', NULL, 1, 'เนื้อหาของเอกสาร', 'ส่วนหัวหรือชื่อเรื่องของเอกสาร', 'ส่วนย่อหน้าของเอกสาร', 'ส่วนคำสั่งของเอกสาร', 'ผิดทุกข้อ', 'B'),
+(658, 177, 'ข้อใดคือนามสกุลของไฟล์ข้อมูลเอกสารภาษา HTML ที่สามารถแสดงผลผ่านระบบเครือข่ายอินเทอร์เน็ต', NULL, 1, '.html', '.txt', '.doc', '.gif', '.jpg', 'A'),
+(659, 177, 'ในภาษา HTMLคำสั่งใดที่เขียนเป็นบรรทัดแรก', NULL, 1, '<HTML>', '<TITLE>', '<BODY>', '<HEAD>', '</HTML>', 'A'),
+(660, 177, 'คำสั่งในข้อใดเป็นคำสั่งที่ใช้สำหรับขึ้นบรรทัดใหม่ในการแสดงผลข้อมูล', NULL, 1, '<ins>', '<tr>', '<b>', '<br>', '<a>', 'D');
 
 -- --------------------------------------------------------
 
@@ -159,7 +186,39 @@ INSERT INTO `student_answer` (`id`, `Sid`, `Qid`, `Answer`) VALUES
 (221, '63011212056', 480, NULL),
 (222, '63011212056', 483, NULL),
 (223, '63011212056', 484, NULL),
-(224, '63011212056', 482, NULL);
+(224, '63011212056', 482, NULL),
+(225, '63011212056', 612, 'Class name'),
+(226, '63011212056', 614, 'attribute'),
+(227, '63011212056', 611, 'สามารถถูกใช้งานได้โดยตรง'),
+(228, '63011212056', 616, 'information hiding'),
+(229, '63011212056', 617, 'encapsulation'),
+(230, '63011212056', 615, '3'),
+(231, '63011212056', 619, 'ลงทะเบียน'),
+(232, '63011212056', 638, 'list'),
+(233, '63011212056', 637, 'size = 2x'),
+(234, '63011212056', 639, 'score = 10'),
+(235, '63011212056', 636, 'กี่Objectก็ได้'),
+(236, '63011212056', 643, NULL),
+(237, '63011212056', 641, NULL),
+(238, '63011212056', 645, NULL),
+(239, '63011212056', 644, NULL),
+(240, '63011212056', 649, NULL),
+(241, '63011212056', 648, NULL),
+(242, '63011212056', 655, '<br>'),
+(243, '63011212056', 654, '<HTML>'),
+(244, '63011212056', 657, 'ส่วนหัวหรือชื่อเรื่องของเอกสาร'),
+(245, '63011212056', 656, '<html>… </html>'),
+(246, '63011212056', 660, '<br>'),
+(247, '63011212091', 652, NULL),
+(248, '63011212091', 653, NULL),
+(249, '63011212091', 657, 'เนื้อหาของเอกสาร'),
+(250, '63011212091', 660, '<a>'),
+(251, '63011212091', 658, '.html'),
+(252, '63011212031', 655, '<br>'),
+(253, '63011212031', 654, '<HTML>'),
+(254, '63011212031', 657, 'ส่วนหัวหรือชื่อเรื่องของเอกสาร'),
+(255, '63011212031', 660, '<br>'),
+(256, '63011212031', 656, '<html>… </html>');
 
 -- --------------------------------------------------------
 
@@ -182,7 +241,15 @@ CREATE TABLE `student_assignment` (
 INSERT INTO `student_assignment` (`id`, `Sid`, `Aid`, `score`, `Date`) VALUES
 (78, '63011212056', 103, 2, '2023-10-17 13:31:30'),
 (79, '63011212088', 103, 2, '2023-10-17 13:35:43'),
-(80, '63011212099', 103, 3, '2023-10-17 13:43:18');
+(80, '63011212099', 103, 3, '2023-10-17 13:43:18'),
+(81, '63011212056', 168, 2, '2023-10-24 18:19:01'),
+(82, '63011212056', 169, 3, '2023-10-24 18:24:40'),
+(83, '63011212056', 172, 2, '2023-10-24 18:30:05'),
+(84, '63011212056', 176, 2, '2023-10-24 18:52:37'),
+(85, '63011212056', 177, 3, '2023-10-24 18:55:33'),
+(86, '63011212091', 177, 1, '2023-10-24 19:03:02'),
+(87, '63011212031', 176, 2, '2023-10-24 19:08:55'),
+(88, '63011212031', 177, 3, '2023-10-24 19:11:14');
 
 -- --------------------------------------------------------
 
@@ -210,7 +277,14 @@ INSERT INTO `student_evideo` (`id`, `Sid`, `Vid`, `current`, `Status`) VALUES
 (68, '63011212099', 158, 0, '1'),
 (69, '63011212056', 160, 30, '1'),
 (70, '63011212056', 160, 30, '1'),
-(71, '63011212056', 160, 30, '1');
+(71, '63011212056', 160, 30, '1'),
+(72, '63011212056', 196, 0, '2'),
+(73, '63011212056', 197, 87, '1'),
+(74, '63011212056', 198, 48, '1'),
+(75, '63011212056', 199, 0, '1'),
+(76, '63011212056', 200, 177, '1'),
+(77, '63011212091', 200, 48, '1'),
+(78, '63011212031', 200, 0, '2');
 
 -- --------------------------------------------------------
 
@@ -230,7 +304,8 @@ CREATE TABLE `student_request` (
 --
 
 INSERT INTO `student_request` (`Rid`, `Sid`, `SJid`, `Date`) VALUES
-(73, '7302031', '1203120', '2023-10-13 04:37:40');
+(92, '63011212031', '1204311', '2023-10-24 18:10:46'),
+(96, '63011212091', '1204208', '2023-10-24 18:13:15');
 
 -- --------------------------------------------------------
 
@@ -250,10 +325,14 @@ CREATE TABLE `student_subject` (
 --
 
 INSERT INTO `student_subject` (`id`, `SJid`, `Sid`, `Status`) VALUES
-(98, '1203120', '63011212056', 1),
-(103, '1203120', '63011212092', 1),
 (107, '1203120', '63011212088', 1),
-(108, '1203120', '63011212099', 1);
+(108, '1203120', '63011212099', 1),
+(109, '1204208', '63011212031', 1),
+(110, '1204208', '63011212056', 1),
+(111, '1204304', '63011212056', 1),
+(112, '1204311', '63011212056', 1),
+(113, '1204304', '63011212031', 1),
+(114, '1204304', '63011212091', 1);
 
 -- --------------------------------------------------------
 
@@ -295,55 +374,31 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`Uid`, `Sname`, `Spassword`, `User_PIC`, `role`) VALUES
-('00012', 'Tanakon T', '$2y$12$z.AiYeiaxbal1zUJFMWdf.rb1zOk9yRshYX2AGRatpjL3PHPsA/c.', NULL, 0),
-('00013', 'Tanakon T', '$2y$12$uvCVMH8NfInVR.bU3I6ice/Q9/0TQIaHMq2aSBJLZojlsCP3JxyYa', NULL, 0),
 ('1234', 'admin', '$2y$12$69kubGHqZ.n3FBzc9SGBw.OctCAu4r9yeQJiMYvObVd0X4wFYS1Cq', NULL, 1),
 ('30011212001', 'Student001', '$2y$12$yXluwBKUf4I7YCjc5/CMc.i1aD4Q921A3Fv9C1gRaVq.CXVccAcKW', '796-30011212001.jpg', 0),
-('6011212000', 'Student006', '$2y$12$mGeU5dusxQDHhQttNQeiceKnbQ8m4QsMfp7aGUzgTlZNTfmwthRqe', NULL, 0),
-('63011111111', 'Student555', '$2y$12$9PXQK6fRKPQisqU0cX1YFebr8liZ.dcqHxUFAHswGuq/pRnBLHcAa', '5413-63011111111.jpg', 0),
-('6301121001', 'Tanakon T', '$2y$12$Tf0sIEaEfJEAP367sGXK7ezdi404iSVr0i9y2HeZWnM.mn8T5S9mu', '5670-6301121001.jpg', 0),
-('63011211100', 'ฐณกร ทันโคกกรวด', '$2y$12$pevX8zKl6Ew8LXrWkDeBTuw4opu9DwWF0vFb0fptBH9LzTbG3hhLe', '9073-630112111001.jpg', 0),
-('6301121200', 'ก้าว ฐณกร', '$2y$12$TLXEDzQrl6eIBXpbKGWGj.sPk8ULWXSCoLaeRcWztb/I6hEOdXOdy', NULL, 0),
 ('63011212000', 'Student0', '$2y$12$xsockFGvdXQNV8aulv24Jetn497fZ6kw1o3CV2gw8SsP7SGYcUSZO', NULL, 0),
 ('63011212005', 'Student05', '$2y$12$j/4MzxlmJsoQYDLYJ0LHpuI5c69C5D8kmUuqM/8XHmFUtPkmjcRi2', NULL, 0),
 ('63011212009', 'ก้าว ฐณกร', '$2y$12$pXsUoa0ZhWz5Z3zqY62N3O69rrzyaEQEqFsrSQktTI3vQJDHt2VsW', NULL, 0),
 ('63011212011', 'sniff kung', '$2y$12$hP1jhK27WOqaz3EkiSE2m.1vm4bajyeue92ZE0Mw9IZlVTRYlRvHO', NULL, 0),
 ('63011212012', 'tar gush', '$2y$12$Pp9AkgWhuE8JmPyUwGmR9uVScBTMjyNKzArwPm3qjOSjmsyQJ1HTm', NULL, 0),
 ('63011212018', 'kayn snif', 'utfyutfuygfgjyg', NULL, 0),
-('63011212031', 'ฐณกร ทันโคกกรวด', '4321', NULL, 0),
+('63011212031', 'ฐณกร ทันโคกกรวด', '$2y$12$jUEHm4TrrZQDjjGFsaAi7eRGphAM38mvxQ3Eaa188.cRCW.tcu/Wq', NULL, 0),
 ('63011212032', 'Tanakon', '$2y$12$XRiu.pOsvc8H/wRzmMfeuuYKFM73TJdNgQ5LabIYxwnAgnGjWngHe', NULL, 0),
 ('63011212033', 'สมชาย ขุนทด', '$2y$12$aq6FDhMA9cf7ByZjxC.3n.mElxA0CpEULeYs3TR6ziaANhsTKPqti', NULL, 0),
 ('63011212034', 'สมชาย สุดขุนทด', '$2y$12$Tc/PCIdGBNlzdBasm0q7J..phujAs9OlAkPdDC4wYdc/4xipVAp3G', NULL, 0),
 ('63011212040', 'john doh', '1111121121212212121212', NULL, 0),
 ('63011212056', 'suphakon', '$2y$12$fGpfvsFjqdUZdMY1WEZjMOSHy5.tqjAjfq7yvMmjOFJlZyVWjh4T.', '4021-63011212056.png', 0),
 ('63011212088', 'Beatriz eric', '$2y$12$WWhnTeI.jKgWh9MW2yZZeuc0KbS6f4iwjQWKDJ8515982OztuHYdK', NULL, 0),
-('63011212092', 'ฐณกร ทันโคกกรวด', '$2y$12$6xYBYidl1DKMZfVqT1jpGeE1weOoq2iW9pSkuroCxpQg2crcXZBf6', '296-63011212092.jpg', 0),
+('63011212091', 'นราวิช สุขขุนทด', '$2y$12$CLc7LRZQiOIrP1TSw3lI3uMS/Baj84kgQNcFl1IyCq/KG4Q7D1aFi', '6578-63011212091.PNG', 0),
 ('63011212099', 'Gabriel Han', '$2y$12$2BWbf6LJVI1AiZEolkLaI.zcW2sTlqkFwx2nbIt2uKVs1C2Vyqdb.', NULL, 0),
-('63011212100', 'ฐณกร ทันโคกกรวด', '$2y$12$IbH9qhK4pR/IgUl7sVOc1u7xp4BleOngvVExviLpTd3YNpiTHzFdy', '1732-630112121001.jpg', 0),
-('63011212103', 'ธนกร ทันโคกกรวด', '$2y$12$hZK2hxBjNL7642r5qqCVCe4vLV6DJ2ONhgP3.n9m5D18zVoIgoR.u', '334-63011212103.jpg', 0),
-('6301121211', 'Tanakon Tankokkurd', '$2y$12$TBy2P5jUjJ8G8Vihtpsvz.8BslS2s6/XJ/B3FytcG5yR4owzyeqiu', NULL, 0),
-('63011212111', 'Tanakon Tankokkurd', '$2y$12$YiEo0bd2FOBEFepu5vyCuuSyodV3yK9ACDMtEf74LaH8508pLyNj2', NULL, 0),
-('63011212117', 'Tanakon Tankokkurd', '$2y$12$Ao5kYprHZrGyKeSk0fW5eu0AH/hxPjJgPtaN6spb0oFfZsapouhVC', NULL, 0),
 ('63011212118', 'Tanakon Tankokkurd', '$2y$12$mW1CIq29sC/T9IVORZJ5Beff3ol/R/H0ULdgRCO7/PPy2WBfR5x0O', NULL, 0),
 ('63011212131', 'สมหญิง แสงขุนทด', '$2y$12$HUA/uzbTTx6nVdsGcekdRutTOJkVZcHwpGzW.Pj2uqN5jpscdi4QK', NULL, 0),
-('6388', 'gggg gggg', '$2y$12$ndIXxMP3Zbq5SO3HT10orOW4BUqyNnnz374vIMZhhM7poooTdJtlO', 'sdd.jpg', 0),
-('63884863', 'samson J drakes', '$2y$12$AcF2ZSaiULJGRU96BYxKTeImWZJjGeA3lfIwGDvGEz6PWvWPHDU96', '9341-63884863.jpg', 0),
 ('64011212000', 'Student006', '$2y$12$5Wj7mtCawpxiZlbduLfzTehR8/aksnolAcKWvXQx6x9PoCck1R8RW', NULL, 0),
-('6401121212', 'Student001', '$2y$12$iNL3lfY9u6jzhDDaQTeeIu9hS7MzE.7XIdoGsEdAjjSuRj1zD2Vhe', NULL, 0),
 ('64011212123', 'Student0', '$2y$12$nUKOcj/L73mbqNpzL3A4Ve4ECIIOL6Ib5E2mix5ekEqgvULVJrjqu', NULL, 0),
 ('64011212125', 'Student001', '$2y$12$/Jz6BF.tyOEtliCUft4YCOKemZiAmL5qn8BPu1FJ0KfsonALGrvP6', NULL, 0),
 ('64011212126', 'Student001', '$2y$12$YebbfJAMd0GH/n1nosOhSu7UszE2lN08803GgjnkBAk6kyIz3tjwW', NULL, 0),
-('6501', 'demo_student', '$2y$12$ovVDPm5cqPCUkd5ueXNOt.QoULpR5rZxtHT0Bw/uVIrmNc3VLEM26', NULL, 0),
 ('65011212000', 'Student006', '$2y$12$kVkhjpveL9q.jXnpIjZSm.vU4vkDydrEisKv3vi5/g201RtvWys2u', NULL, 0),
-('68011212001', 'สมชาย ขุนทด', '$2y$12$3CTWZoeoq4gMBCmKFJAFqONFbz2MLP2rReGcy4T9H.MlPDJFd5wny', NULL, 0),
-('70011212001', 'Student0', '$2y$12$ZMU/Kb9yYPEcGjuMGHgQJeGpp132UPmhQVK6hGNwEEU2z3FpdaENW', NULL, 0),
-('7011212001', 'Student0', '$2y$12$T/q/NpkGgnql/K6Ux7fEYeUDf0kjXTnXFzda49FYvu0bY6yF294Ma', NULL, 0),
-('71011212001', 'Student0', '$2y$12$ogYH79HrXFA3FATTRNrnl.2PZjiNNseXBry0l07mpAh3HzPlObLO.', NULL, 0),
-('72011212031', 'ฐณกร ทันโคกกรวด', '$2y$12$sA0u0AAmbV9IM6HErO7US.VRbndsYwDCz6GYFThjSwGTcdDo8IL6C', NULL, 0),
-('7302031', 'ธนกร ทันโคกกรวด', '$2y$12$T3VFxFX5yJ/a9GTN1NMTIeWjnufFBjdmrj5I.gd.c0o.5Ugswg50u', '2369-7302031.jpg', 0),
-('7302032', 'ฐณกร ทันโคกกรวด', '$2y$12$qBQTwfleKhof7GXxa6q3U.lC1oNmF5UiVuEV8fr6xo1V6zi3uSvDW', '6921-7302032.png', 0),
-('7302033', 'Tanakon T', '$2y$12$6PWPXdf1vpAgqVd..fNQiuW3mp.v43m5SUS7TG7GLwvXQ1yO7j3JS', NULL, 0),
-('7302034', 'Tanakon T', '$2y$12$Ezlr/zg6uz6Bl8gGvYJFuesyU72XrXCeFAItvvHB4cMYoU/1g6jx.', NULL, 0);
+('68011212001', 'สมชาย ขุนทด', '$2y$12$3CTWZoeoq4gMBCmKFJAFqONFbz2MLP2rReGcy4T9H.MlPDJFd5wny', NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -430,7 +485,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `Aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+  MODIFY `Aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
 
 --
 -- AUTO_INCREMENT for table `evideo`
@@ -442,37 +497,37 @@ ALTER TABLE `evideo`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `Qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=636;
+  MODIFY `Qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=661;
 
 --
 -- AUTO_INCREMENT for table `student_answer`
 --
 ALTER TABLE `student_answer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
 
 --
 -- AUTO_INCREMENT for table `student_assignment`
 --
 ALTER TABLE `student_assignment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `student_evideo`
 --
 ALTER TABLE `student_evideo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `student_request`
 --
 ALTER TABLE `student_request`
-  MODIFY `Rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `Rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `student_subject`
 --
 ALTER TABLE `student_subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- Constraints for dumped tables
