@@ -6,6 +6,7 @@ services:
     build: 
       context: ./php
       dockerfile: Dockerfile
+    restart: always
     depends_on:
       - db
     volumes:
@@ -50,6 +51,7 @@ services:
     container_name: react_app
     ports:
       - "3000:3000"
+    restart: always
     volumes:
       - ./react/src:/var/www/html/
     networks:
