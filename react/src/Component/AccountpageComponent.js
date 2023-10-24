@@ -47,7 +47,7 @@ const AccountPage = () =>{
                         Account
                     </Typography>
                     <Grid container flexDirection={'row'} >
-                        <Grid item xs={5}>
+                        <Grid item xs={12} sm={5} md={5} lg={5} xl={5} >
                             <Avatar
                                 alt="Remy Sharp"
                                 src={userData!==undefined?Servicesconfig.getImageProfile+userData.User_PIC:null}
@@ -62,7 +62,7 @@ const AccountPage = () =>{
                                 paddingleft={3} 
                                 paddingBottom={2}
                             >
-                                <Grid item xs={5}>
+                                <Grid item xs={8} sm={5} md={5} lg={5} xl={5}>
                                     <Typography 
                                         variant="subtitle1" 
                                         sx={AccountTypographySubTitleStyles}
@@ -70,7 +70,7 @@ const AccountPage = () =>{
                                         User ID&nbsp;:
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={7}>
+                                <Grid item xs={4} sm={7} md={7} lg={7} xl={7}>
                                     <Typography
                                         variant="subtitle1" 
                                         sx={AccountTypographyTextStyles}
@@ -83,7 +83,7 @@ const AccountPage = () =>{
                                 paddingleft={3} 
                                 paddingBottom={2}
                             >
-                                <Grid item xs={4}>
+                                <Grid item xs={5} sm={4} md={4} lg={4} xl={4}>
                                     <Typography 
                                         variant="subtitle1" 
                                         sx={AccountTypographySubTitleStyles}
@@ -91,7 +91,7 @@ const AccountPage = () =>{
                                         Name&nbsp;:
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={8}>
+                                <Grid item xs={7} sm={8} md={8} lg={8} xl={8}>
                                     <Typography 
                                         variant="subtitle1" 
                                         sx={AccountTypographyTextStyles}
