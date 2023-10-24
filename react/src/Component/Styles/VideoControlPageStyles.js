@@ -25,16 +25,18 @@ export const VideoControlGridContainervolumeSliderStyles = {
 };
 
 export const VideoControlGridContainerPlayTimeStyles = {
-    alignItems:"center"
+    alignItems:"center",
 };
 
 export const VideoControlGridPlayBarStyles = {
-    width:{ xs: 140, 
-        sm: 550, 
-        md: 650, 
-        lg: 920, 
-        xl: 950},
-        marginRight: 2
+    width:{ 
+        xs: '40%', 
+        sm: '75%', 
+        md: '78%', 
+        lg: '80%', 
+        xl: '80%'
+    },
+    marginRight: 2
 };
 
 export const VideoControlGridMediaPlayButtonStyles = {
