@@ -7,7 +7,7 @@ COPY package-lock.json .
 RUN npm install --force
 
 COPY . .
-RUN npm run build
+
 RUN npm install -g serve@14.2.1
 
 EXPOSE 3000
