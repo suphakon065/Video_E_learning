@@ -22,7 +22,7 @@ import { indigo } from '@mui/material/colors';
 import config from '../Storage/config';
 import { useEffect } from 'react';
 import { CreateVideoQuizBottomStyles, CreateVideoQuizBoxStyles, CreateVideoQuizCardMediaVideoStyles, CreateVideoQuizCreateStyles, CreateVideoQuizGridCreateQuizStyles, CreateVideoQuizGridSaveQuizStyles, CreateVideoQuizGridTitleNameStyles, CreateVideoQuizGridURLStyles, CreateVideoQuizImportButtonStyles, CreateVideoQuizLinkStyles, CreateVideoQuizRadioButtonStyles, CreateVideoQuizSaveStyles, CreateVideoQuizTableBoxStyles, CreateVideoQuizTableHeadBoxStyles, CreateVideoQuizTextFileStyles, CreateVideoQuizTypographyTitleNameStyles, CreateVideoQuizVideoStatusStyles } from './Styles/CreateVideoQuizPageStyles';
-import { DeleteQuiz, UploadQuestImg, postUpdateVideoQuiz } from '../services/api';
+import { DeleteQuiz, GetVideoDataEdit, UploadQuestImg, postUpdateVideoQuiz } from '../services/api';
 import EditQuizEditPage from './EditQuizEditPageComponent';
 
 function EditVideo() {
@@ -53,105 +53,109 @@ function EditVideo() {
     };
     console.log('SJIDfirst: ',SJId);
     if(SJId.Vid !== undefined && Data.Vname===''){
-      axios.get(`https://vel063.comsciproject.net/api/video.php/allcontent/${SJId.Vid}`).then(response => response.data)
-      .then((data)=>{
-        if(data.length !== 0){
-          console.log('Data: ',data.length);
-          if(data.length === undefined){
-            setData({
-              ...Data,
-              Vname: data.Vname,
-              Vinfo: data.Vinfo,
-              Vlink: data.Vlink,
-              Vtype: data.Vtype,
-            });
-            handleImportVideo(data.Vlink);
-            setDateValue(new Date(data.Enddate));
-          }else{
-            const groupedData = {};
-            data.map((quest)=>{
-              const {Aid, ...rest} = quest;
-              if(!groupedData[Aid]){
-                groupedData[Aid] = [];
-              }
-              groupedData[Aid].push(rest);
-            });
-            console.log('groupedData0: ',groupedData);
-            const QuestionGroup = Object.entries(groupedData).map(([key, group]) => ({
-              id: key,
-              data: group,
-            }));
-            console.log('groupedData: ',QuestionGroup);
-            QuestionGroup.map((quiz)=>{
-              console.log('QuestionGroup: ',quiz.id)
-              const QuestsData = []
-              quiz.data.map((quest)=>{
-                const questionData ={
-                  Qid: quest.Qid,
-                  Question: quest.Question,
-                  Qtype: quest.Qtype===1?config.questTypeMutiple:config.questTypeShortAns,
-                  PIC: quest.PIC,
-                  FIleImg: null,
-                  A: quest.A,
-                  B: quest.B,
-                  C: quest.C,
-                  D: quest.D,
-                  E: quest.E,
-                  Answer: quest.Answer,
-                  image:null,
-                }
-                QuestsData.push(questionData);
-              });
-              const TimeCal = {
-                StartTime:{
-                  h:Math.floor(quiz.data[0].startTime /3600),
-                  m:(quiz.data[0].startTime % 3600)/60,
-                },
-                StopTime:{
-                  h:Math.floor(quiz.data[0].endTime /3600),
-                  m:(quiz.data[0].endTime % 3600)/60,
-                },
-                coundown:{
-                  h:Math.floor(quiz.data[0].countdown/3600),
-                  m:(quiz.data[0].countdown % 3600)/60,
-                },
-              }
-              const Time ={
-                startTimeStr: (TimeCal.StartTime.h).toString()+ ' : '+ (TimeCal.StartTime.m).toString(),
-                endTimeStr: (TimeCal.StopTime.h).toString()+ ' : '+ (TimeCal.StopTime.m).toString(),
-                coundownStr: (TimeCal.coundown.h).toString()+ ' : '+ (TimeCal.coundown.m).toString()
-              }
-              const QuizData ={
-                QuizId: quiz.id,
-                Quizname: quiz.data[0].Aname,
-                StartTime: TimeCal.StartTime,
-                StopTime: TimeCal.StopTime,
-                coundown: TimeCal.coundown,
-                NumQuest: quiz.data[0].NumQuests,
-                Question: QuestsData,
-                TimeStr: Time,
-              }
-              const datas = Data.Quiz
-              datas.push(QuizData);
-              console.log('QuizData[]',QuizData);
-              setData((prevState)=>({...prevState,Quiz:datas}));
-            });
-
-            setData({
-              ...Data,
-              Vname: data[0].Vname,
-              Vinfo: data[0].Vinfo,
-              Vlink: data[0].Vlink,
-              Vtype: data[0].Vtype,
-            });
-            handleImportVideo(data[0].Vlink);
-            setDateValue(new Date(data[0].Enddate));
-          }
-          
-        }
-      });
+      getServicesDataVideo();
     }
   },[]);
+  const getServicesDataVideo = async()=>{
+    const getDataService = await GetVideoDataEdit(SJId.Vid)
+    .then((data)=>{
+      if(data.length !== 0){
+        console.log('Data: ',data.length);
+        if(data.length === undefined){
+          setData({
+            ...Data,
+            Vname: data.Vname,
+            Vinfo: data.Vinfo,
+            Vlink: data.Vlink,
+            Vtype: data.Vtype,
+          });
+          handleImportVideo(data.Vlink);
+          setDateValue(new Date(data.Enddate));
+        }else{
+          const groupedData = {};
+          data.map((quest)=>{
+            const {Aid, ...rest} = quest;
+            if(!groupedData[Aid]){
+              groupedData[Aid] = [];
+            }
+            groupedData[Aid].push(rest);
+          });
+          console.log('groupedData0: ',groupedData);
+          const QuestionGroup = Object.entries(groupedData).map(([key, group]) => ({
+            id: key,
+            data: group,
+          }));
+          console.log('groupedData: ',QuestionGroup);
+          QuestionGroup.map((quiz)=>{
+            console.log('QuestionGroup: ',quiz.id)
+            const QuestsData = []
+            quiz.data.map((quest)=>{
+              const questionData ={
+                Qid: quest.Qid,
+                Question: quest.Question,
+                Qtype: quest.Qtype===1?config.questTypeMutiple:config.questTypeShortAns,
+                PIC: quest.PIC,
+                FIleImg: null,
+                A: quest.A,
+                B: quest.B,
+                C: quest.C,
+                D: quest.D,
+                E: quest.E,
+                Answer: quest.Answer,
+                image:null,
+              }
+              QuestsData.push(questionData);
+            });
+            const TimeCal = {
+              StartTime:{
+                h:Math.floor(quiz.data[0].startTime /3600),
+                m:(quiz.data[0].startTime % 3600)/60,
+              },
+              StopTime:{
+                h:Math.floor(quiz.data[0].endTime /3600),
+                m:(quiz.data[0].endTime % 3600)/60,
+              },
+              coundown:{
+                h:Math.floor(quiz.data[0].countdown/3600),
+                m:(quiz.data[0].countdown % 3600)/60,
+              },
+            }
+            const Time ={
+              startTimeStr: (TimeCal.StartTime.h).toString()+ ' : '+ (TimeCal.StartTime.m).toString(),
+              endTimeStr: (TimeCal.StopTime.h).toString()+ ' : '+ (TimeCal.StopTime.m).toString(),
+              coundownStr: (TimeCal.coundown.h).toString()+ ' : '+ (TimeCal.coundown.m).toString()
+            }
+            const QuizData ={
+              QuizId: quiz.id,
+              Quizname: quiz.data[0].Aname,
+              StartTime: TimeCal.StartTime,
+              StopTime: TimeCal.StopTime,
+              coundown: TimeCal.coundown,
+              NumQuest: quiz.data[0].NumQuests,
+              Question: QuestsData,
+              TimeStr: Time,
+            }
+            const datas = Data.Quiz
+            datas.push(QuizData);
+            console.log('QuizData[]',QuizData);
+            setData((prevState)=>({...prevState,Quiz:datas}));
+          });
+
+          setData({
+            ...Data,
+            Vname: data[0].Vname,
+            Vinfo: data[0].Vinfo,
+            Vlink: data[0].Vlink,
+            Vtype: data[0].Vtype,
+          });
+          handleImportVideo(data[0].Vlink);
+          setDateValue(new Date(data[0].Enddate));
+        }
+        
+      }
+    });
+  }
+
   const navigateToContacts = ()=>{
     console.log('Data.SjId: ',Data.SjId);
     navigate('/videosTeacher',{state:Data.SjId.sjId});
