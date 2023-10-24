@@ -58,3 +58,4 @@ services:
 networks:
   video_e_learning_default:
     driver: bridge
+    external: true
