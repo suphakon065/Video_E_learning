@@ -2,8 +2,10 @@ import axios from 'axios';
 import Servicesconfig from '../Storage/servicesConfig';
 import config from '../Storage/config';
 
+const hostname = window.location.hostname;
+
 const api = axios.create({
-  baseURL: 'http://php-apache/api',
+  baseURL: 'http://' + hostname + ':8080/api',
   // Other configuration options
 });
 
