@@ -37,5 +37,8 @@ const Servicesconfig = {
     getQuestions: `/studentASSIGNMENT.php/getQuestion/`,
     deleteQuiz: `/assignment.php/`,
     postUpdateVideoQuiz: `/video.php/updateVideo/`,
+    getVideoDataEdit:`/video.php/allcontent/`,
+    deleteQuestion: `/question.php/`,
+    postVideoQuiz: `/video.php/insertVideo/`,
   };
   export default Servicesconfig;
