@@ -358,14 +358,26 @@ export const ChangeStatusVideo = async (Vid,VideoType) => {
   }
 };
 
-export const EditUser = async (Uid,UserData,ImgName) => {
+export const EditUser = async (Uid,userData,ImgName) => {
   try{
-    const response = await api.post(Servicesconfig.editUser + Uid, {
-      Uid: UserData.stdId,
-      Mypassword: UserData.stdPassword,
-      password:UserData.stdNewPassword,
-      name:UserData.stdName,
+    const response = await api.post(Servicesconfig.editUser, {
+      Uid: Uid,
+      name:userData.stdName,
       User_PIC: ImgName,
+      Mypassword: userData.stdPassword
+    });
+    return response.data;
+  }catch (error) {
+    throw error;
+  }
+};
+
+export const EditPassword = async (Uid,userData) => {
+  try{
+    const response = await api.post(Servicesconfig.updatePassword, {
+      Uid: Uid,
+      Mypassword:userData.stdPassword,
+      password: userData.stdNewPassword,
     });
     return response.data;
   }catch (error) {
