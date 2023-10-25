@@ -37,7 +37,7 @@ function ValueLabelComponent(props) {
     '& .MuiSlider-thumb': {
       height: 24,
       width: 24,
-      backgroundColor: '#fff',
+      backgroundColor: '#ffff',
       border: '2px solid currentColor',
       '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
         boxShadow: 'inherit',
