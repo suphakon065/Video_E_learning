@@ -183,7 +183,7 @@ function CreateVideo() {
         const CreateVideoQuiz = await PostVideoQuiz(Data.SjId,jsonData).then((data)=>{
           handleUploadImage(UploadImgData);
           console.log("res: ",data);
-          navigateToContacts();
+          // navigateToContacts();
         });
         // await axios.post(`https://vel063.comsciproject.net/api/video.php/insertVideo/${Data.SjId}`, jsonData)
         // .then(function (response) {
