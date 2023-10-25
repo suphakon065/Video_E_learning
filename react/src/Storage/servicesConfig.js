@@ -22,7 +22,7 @@ const Servicesconfig = {
     deleteVideo: `/video.php/`,
     changeTypeVideo: `/video.php/setType/`,
     getUser: `/user.php/`,
-    editUser: `/user.php/edituser/`,
+    editUser: `/user.php/edituser`,
     getAssigmentOnVideo: `/studentANSWER.php/videoAssignment/`,
     postStudentAssigmentForm: `/studentANSWER.php/getForm/`,
     postUpdateCurrentTime: `/studentEVIDEO.php/updateCurrent`,
@@ -40,5 +40,6 @@ const Servicesconfig = {
     getVideoDataEdit:`/video.php/allcontent/`,
     deleteQuestion: `/question.php/`,
     postVideoQuiz: `/video.php/insertVideo/`,
+    updatePassword: `/user.php/editpassword`,
   };
   export default Servicesconfig;
