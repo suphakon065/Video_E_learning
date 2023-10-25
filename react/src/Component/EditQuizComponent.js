@@ -23,6 +23,7 @@ import { CreeateQuizBoxStyles, CreeateQuizFabPlusButtonStyles, CreeateQuizFormCo
 
 function EditQuiz(props) {
   const EditData = props
+  const [errorCheck ,setErrorCheck]= useState(false);
   const [Quiz,setQuiz]=useState({
     QuizId: EditData.QuizId,
     Quizname: EditData.Quizname,
@@ -37,8 +38,15 @@ useEffect(() => {
   console.log('props: ',props);
 }, []);
 const handleSave=async()=>{
-  console.log('D: ',Quiz);
-  props.onClick(Quiz,question)
+  console.log('D: ',Quiz.Question);
+  if(question.length >= Quiz.NumQuest){
+    setErrorCheck(false);
+    console.log('D1: ',Quiz);
+    props.onClick(Quiz,question)
+  }else{
+    setErrorCheck(true);
+  }
+  
 }
 const handleChangeQuiz = (e) => {
   const { name, value } = e.target;
@@ -298,6 +306,7 @@ const handleChangeImg = (e,i) =>{
                   <Grid container spacing={1}>
                   <Grid item xs={11}>
                     <TextField fullWidth
+                      error={errorCheck}
                       className='TextfieldBorderRadius'
                       variant="standard"
                       type={'number'}
