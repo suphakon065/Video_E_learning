@@ -59,10 +59,10 @@ export const EditAccountGridMidSpaceStyles = {
 }
 
 export const EditAccountGridButtonStyles = {
-    paddingleft: 3,
+    // paddingleft: 3,
     paddingBottom: 2,
-    alignItems: 'left', 
-    justifyContent: "flex-end"
+    // alignItems: 'left', 
+    justifyContent: "space-between"
 }
 
 export const EditAccountTypographyTitleStyles = {
@@ -71,9 +71,8 @@ export const EditAccountTypographyTitleStyles = {
 }
 
 export const EditAccountTypographySubtitleStyles = {
-    paddingTop: 3,
     fontWeight: 'bold',
-    textAlign: "left"
+    paddingLeft:2,
 }
 
 export const EditAccountTypographyBlankStyles = {
@@ -92,8 +91,8 @@ export const EditAccountAvatarStyles = {
 export const EditAccountButtonStyles = {
     borderRadius: '30px',
     textDecoration:'none',
-    padding:1.5,
     paddingRight:2,
+    marginTop:2,
     textAlign:"center",
     bgcolor: indigo[900]
 }
