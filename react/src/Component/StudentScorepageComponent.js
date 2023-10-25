@@ -21,6 +21,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { indigo } from "@mui/material/colors";
 import { StudentScoreGridBorderStyles, StudentScoreGridHeadStyles, StudentScoreGridScoreStyles, StudentScoreGridStyles, StudentScoreGridTableStyles, StudentScoreHeadeStyles, StudentScoreLineStyles, StudentScoreScoreStyles, StudentScoreTableCellBlankStyles, StudentScoreTableCellButtonStyles, StudentScoreTableCellInfoStyles, StudentScoreTableCellNameStyles, StudentScoreTableCellStyles, StudentScoreTheatersIconStyles, StudentScoreTitleStyles } from "./Styles/StudentScorepageStyles";
+import { GetQuestionsHistory } from "../services/api";
 
 function ScorePage(){
     const dataget =
@@ -105,14 +106,14 @@ function ScorePage(){
       },[]);
       const getHistoryAssingment = async(Aidpass,Uidpass)=>{
         console.log("Aidpass: ",Aidpass," UidPass: ",Uidpass);
-        await axios.get(`https://vel063.comsciproject.net/api/studentASSIGNMENT.php/getQuestion/${Aidpass}/${Uidpass}`).then(response => response.data)
-            .then((data)=>{
-                if(data !== undefined){
-                    console.log('HisAss:',data);
-                    setHisAss(data);
-                }
-            })
-      }
+            // await axios.get(`https://vel063.comsciproject.net/api/studentASSIGNMENT.php/getQuestion/${Aidpass}/${Uidpass}`).then(response => response.data)
+            // .then((data)=>{
+            //     if(data !== undefined){
+            //         console.log('HisAss:',data);
+            //         setHisAss(data);
+            //     }
+            // })
+        }
       const handleFindScore = ()=>{
         let stdscore = 0;
         let stdfullscore = 0;
