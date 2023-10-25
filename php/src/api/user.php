@@ -77,12 +77,12 @@ switch($method){
                 $stmt->bindParam(':name',$data->name);
                 $stmt->bindParam(':User_PIC', $data->User_PIC);
                 if ($stmt->execute()){
-                    $response = ['status' => 1, 'message' => 'Record successfully.'];
+                    $response = true;
                 } else {
-                    $response = ['status' => 0, 'message' => 'Failed to record.'];
+                    $response = false;
                 }
             }else {
-                $response = ['status' => 0, 'message' => 'your password incorrect.'];
+                $response = false;
             }
 
         } else if(($path[3]) && $path[3]=="editpassword"){
@@ -96,12 +96,12 @@ switch($method){
                 $hash = password_hash($data->password,PASSWORD_DEFAULT,['cost'=>12]);
                 $stmt->bindParam(':password', $hash);
                 if ($stmt->execute()){
-                    $response = ['status' => 1, 'message' => 'Record successfully.'];
+                    $response = true;
                 } else {
-                    $response = ['status' => 0, 'message' => 'Failed to record.'];
+                    $response = false;
                 }
             }else {
-                $response = ['status' => 0, 'message' => 'your password incorrect.'];
+                $response = false;
             }
             
         }else if(($path[3]) && $path[3]=="createUser"){
