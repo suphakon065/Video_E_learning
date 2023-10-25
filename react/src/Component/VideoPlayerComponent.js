@@ -16,6 +16,7 @@ import axios from 'axios';
 import { grey, indigo } from '@mui/material/colors';
 import config from '../Storage/config';
 import { getAssigmentOnVideo, getVideoInfoData, postAssigmentStudentForm, postCreateVideoCurrentTime, postUpdateVideoCurrentTime } from '../services/api';
+import VideoLayer from './VideoLayerComponent';
 
 const DataEx = {
     Vid: 173,
@@ -79,6 +80,7 @@ function VideoPlayer() {
     const playerRef = useRef(null);
     const playerContainerRef = useRef(null);
     const controlsRef = useRef(null);
+    const layerRef = useRef(null)
     const LastTime = useRef(0);
     useEffect(()=>{
         console.log('datavideo: ',datavideo);
@@ -315,7 +317,10 @@ function VideoPlayer() {
         controlsRef.current.style.visibility = "visible";
         count = 0;
     }
-
+    const handleTouchMove=()=>{
+        controlsRef.current.style.visibility = "visible";
+        count = 0;
+    }
     const handleDialog = () =>{
         setState({...state, playing: false});
         setDialogstate(true)
@@ -340,6 +345,7 @@ function VideoPlayer() {
                 ref={playerContainerRef} 
                 className='playerWrapper'
                 onMouseMove={handleMouseMove}
+                onTouch={handleTouchMove}
             >
                 <ReactPlayer
                     ref={playerRef}
@@ -351,6 +357,7 @@ function VideoPlayer() {
                     volume={volume}
                     onProgress={handleProgress}
                 />
+                <VideoLayer ref={layerRef}/>
                 <VideoControl
                     ref={controlsRef}
                     onPlayPause={handlePlayPause} playing={playing}
@@ -371,7 +378,7 @@ function VideoPlayer() {
                 />
                 <Dialog 
                     open={dialogstate} 
-                    onClose={() => setDialogstate(false)}
+                    // onClose={() => setDialogstate(false)}
                     scroll='paper'
                 >
                     <DialogContent
