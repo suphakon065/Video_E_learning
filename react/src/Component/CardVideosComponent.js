@@ -17,6 +17,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { useEffect } from 'react';
 import config from '../Storage/config';
 import { CardVideosButtonStyles, CardVideosCardStyles, CardVideosCoverStyles, CardVideosLinkStyles, CardVideosPaperStyles, CardVideosStatusAlreadyStyles, CardVideosStatusDoneStyles, CardVideosStatusNotYetStyles, CardVideosStatusStyles, CardVideosTypographyButtonStyles, CardVideosTypographyGutterBottomStyles } from './Styles/CardVideosPageStyles';
+import { GetAssignmentScore } from '../services/api';
 
 function CardVideos(prop) {
     const [bool,setbool] = useState(true);
@@ -42,9 +43,8 @@ function CardVideos(prop) {
         handleImportVideo(element.Data.Vlink);
     },[])
 
-    const getData=()=>{
-        axios.get(`https://vel063.comsciproject.net/api/studentASSIGNMENT.php/getAssignment/${element.Data.Vid}/${Uid}`).then(response => response.data)
-        .then((data)=>{ 
+    const getData=async()=>{
+        const getAssignmentScore = await GetAssignmentScore(element.Data.Vid,Uid).then((data)=>{
             const Data = {
                 V: element.Data.Vid,
                 U: Uid,
@@ -53,6 +53,16 @@ function CardVideos(prop) {
             console.log("Assignment: ",data);
             setDatapass(Data);
         });
+        // axios.get(`https://vel063.comsciproject.net/api/studentASSIGNMENT.php/getAssignment/${element.Data.Vid}/${Uid}`).then(response => response.data)
+        // .then((data)=>{ 
+        //     const Data = {
+        //         V: element.Data.Vid,
+        //         U: Uid,
+        //         D: [...data],
+        //     }
+        //     console.log("Assignment: ",data);
+        //     setDatapass(Data);
+        // });
     }
     const handleImportVideo = (videoLink)=>{
         const videoIdMatch = videoLink.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?t=))(.*?)(?:\?|$|&|#)/);
