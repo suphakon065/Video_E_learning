@@ -70,7 +70,11 @@ function EditVideo() {
             Vtype: data.Vtype,
           });
           handleImportVideo(data.Vlink);
-          setDateValue(new Date(data.Enddate));
+          const originalDate = new Date(String(data.Enddate));
+          const year =originalDate.getFullYear();
+          const month = String(originalDate.getMonth() + 1).padStart(2, '0');
+          const day = String(originalDate.getDate()).padStart(2, '0');
+          setDateValue(`${year}-${month}-${day}`);
         }else{
           const groupedData = {};
           data.map((quest)=>{
@@ -149,7 +153,12 @@ function EditVideo() {
             Vtype: data[0].Vtype,
           });
           handleImportVideo(data[0].Vlink);
-          setDateValue(new Date(data[0].Enddate));
+          const originalDate = new Date(String(data[0].Enddate));
+          const year =originalDate.getFullYear();
+          const month = String(originalDate.getMonth() + 1).padStart(2, '0');
+          const day = String(originalDate.getDate()).padStart(2, '0');
+          setDateValue(`${year}-${month}-${day}`);
+          // setDateValue(new Date(data[0].Enddate));
         }
         
       }
@@ -246,7 +255,7 @@ function EditVideo() {
       Vname:Data.Vname,
       Vinfo:Data.Vinfo,
       Vlink:Data.Vlink,
-      Vtype:Data.Vtype ===VideoTypeData.CantFast?true:false,
+      Vtype:Data.Vtype ===VideoTypeData.CantFast?VideoTypeData.CantFast:VideoTypeData.NormalVideo,
       Enddate: dateValue,
       Quiz:[]
     }
@@ -389,7 +398,13 @@ function EditVideo() {
               <DatePicker 
                 label="Select date"
                 value={dateValue}
-                onChange={(newValue)=>setDateValue(newValue)}
+                onChange={(newValue)=>{
+                  const originalDate = new Date(String(newValue));
+                  const year =originalDate.getFullYear();
+                  const month = String(originalDate.getMonth() + 1).padStart(2, '0');
+                  const day = String(originalDate.getDate()).padStart(2, '0');
+                  setDateValue(`${year}-${month}-${day}`);
+                }}
                 renderInput={(props)=>
                   <TextField {...props} 
                     margin="normal"
