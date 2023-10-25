@@ -167,12 +167,20 @@ function DialogQuiz(prop) {
       </Dialog>
     );
   }
-  const handleImageClick = (imageUrl) => {
-    setSelectedImage(imageUrl);
-    setIsPopupOpen(true);
+  const handleImageClick = (imageUrl,e) => {
+    e.preventDefault();
+    if(!isPopupOpen){
+      console.log('In');
+      setSelectedImage(imageUrl);
+      setIsPopupOpen(true);
+    }
   };
   const closePopup = () => {
-    setIsPopupOpen(false);
+    if(isPopupOpen){
+      console.log('Out');
+      setIsPopupOpen(false);
+    }
+    
   };
   return (
     <>
@@ -197,9 +205,13 @@ function DialogQuiz(prop) {
                     src={Servicesconfig.getImageQuest+dataItem[activeStep].PIC.toLowerCase()}
                     width='100%'
                     height='50%'
-                    onClick={() => handleImageClick(Servicesconfig.getImageQuest+dataItem[activeStep].PIC.toLowerCase())}
+                    onClick={(e) => setIsPopupOpen(true)}
                   />
-                  <PopupImage open={isPopupOpen} onClose={closePopup} imageUrl={selectedImage} />
+                  <Dialog open={isPopupOpen} onClose={closePopup} maxWidth="md">
+                    <DialogContent>
+                      <img src={selectedImage} alt="Large Image" style={{ width: '100%' }} />
+                    </DialogContent>
+                  </Dialog>
                 </Grid>
               </Grid>:null
             }
