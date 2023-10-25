@@ -34,6 +34,10 @@ function CreateVideo() {
   const [Editdialogstate,setEditDialogstate] = useState(false)
   const [videoImage,setVideoImage] = useState('');
   const [EditData,setEditData] = useState();
+  const [QuestionType,setQuestionType] = useState({
+    Mutiple:config.GetQuestType.Mutiple,
+    ShortAns:config.GetQuestType.SHortAns,
+  });
   const navigate = useNavigate();
   const [Data,setData] = useState({
     SjId: SJId,
@@ -151,7 +155,7 @@ function CreateVideo() {
         const questData ={
           Question:quest.Question,
           PIC:quest.PIC,
-          Qtype:quest.Qtype,
+          Qtype:quest.Qtype?QuestionType.Mutiple:QuestionType.ShortAns,
           A:quest.A,
           B:quest.B,
           C:quest.C,
