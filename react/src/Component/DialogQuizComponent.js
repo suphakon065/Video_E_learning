@@ -114,16 +114,18 @@ function DialogQuiz(prop) {
         }
       }else{
         // short answer
-        if(item.A === item.Myanswer){
-          yourscore++;
-        }else if(item.B === item.Myanswer){
-          yourscore++;
-        }else if(item.C === item.Myanswer){
-          yourscore++;
-        }else if(item.D === item.Myanswer){
-          yourscore++;
-        }else if(item.E === item.Myanswer){
-          yourscore++;
+        if(item.Myanswer !== ''){
+          if(item.A === item.Myanswer){
+            yourscore++;
+          }else if(item.B === item.Myanswer){
+            yourscore++;
+          }else if(item.C === item.Myanswer){
+            yourscore++;
+          }else if(item.D === item.Myanswer){
+            yourscore++;
+          }else if(item.E === item.Myanswer){
+            yourscore++;
+          }
         }
       }
     });
