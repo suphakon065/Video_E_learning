@@ -41,5 +41,6 @@ const Servicesconfig = {
     deleteQuestion: `/question.php/`,
     postVideoQuiz: `/video.php/insertVideo/`,
     updatePassword: `/user.php/editpassword`,
+    getAssignmentScore:`/studentASSIGNMENT.php/getAssignment/`,
   };
   export default Servicesconfig;
