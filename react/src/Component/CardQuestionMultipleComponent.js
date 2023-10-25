@@ -76,16 +76,20 @@ function CardQuestionMultiple(prop) {
             )
     }else{
         let Anschoicebool = false;
-        if(Myanser === A){
-            Anschoicebool = true
-        }else if(Myanser === B){
-            Anschoicebool = true
-        }else if(Myanser === C){
-            Anschoicebool = true
-        }else if(Myanser === D){
-            Anschoicebool = true
-        }else if(Myanser === E){
-            Anschoicebool = true
+        console.log('Myanser: ',Myanser);
+        if(Myanser !== null){
+            console.log('Myanser1: ',Myanser);
+            if(Myanser === A){
+                Anschoicebool = true
+            }else if(Myanser === B){
+                Anschoicebool = true
+            }else if(Myanser === C){
+                Anschoicebool = true
+            }else if(Myanser === D){
+                Anschoicebool = true
+            }else if(Myanser === E){
+                Anschoicebool = true
+            }
         }
         if(Anschoicebool == true){
             return(
