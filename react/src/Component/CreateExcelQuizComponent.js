@@ -31,6 +31,7 @@ const boxDefault = {
 function CreateExelQuiz(props) {
   const [question,setQuestion]= useState([]);
   const [excelData,setExcelData] = useState();
+  const [errorCheck ,setErrorCheck]= useState(false);
   const [startTime,setStartTime] = useState({
     h: 0,
     m: 0,
@@ -172,8 +173,15 @@ const handleSave=async()=>{
     NumQuest: Quiz.NumQuest,
     Question: arrayQuest,
   }));
-  console.log('excelQuiz: ',Quiz);
-  props.onClick(Quiz,arrayQuest);
+  if(arrayQuest.length >= Quiz.NumQuest){
+    console.log('excelDataFinish1: ',arrayQuest.length);
+    setErrorCheck(false);
+    props.onClick(Quiz,arrayQuest);
+  }else{
+    setErrorCheck(true);
+  }
+  
+  
 }
 
   return (
@@ -338,6 +346,7 @@ const handleSave=async()=>{
                   <Grid container spacing={1}>
                   <Grid item xs={6} sm={11}>
                     <TextField fullWidth
+                      error={errorCheck}
                       className='TextfieldBorderRadius'
                       variant="standard"
                       type={'number'}
