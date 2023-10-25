@@ -17,7 +17,7 @@ import CreateQuestion from './CreateQuestionComponent';
 import HeaderBar from './HeaderBarComponent';
 import axios from 'axios';
 import * as XLSX from 'xlsx/xlsx.mjs';
-import { indigo } from '@mui/material/colors';
+import { indigo, red } from '@mui/material/colors';
 import { useEffect } from 'react';
 import config from '../Storage/config';
 import { CreeateQuizBoxStyles, CreeateQuizFabPlusButtonStyles, CreeateQuizFormControllStyles, CreeateQuizGridBodyStyles, CreeateQuizGridCoiseStyles, CreeateQuizGridCrossStyles, CreeateQuizGridInputStyles, CreeateQuizGridPlusButtonStyles, CreeateQuizGridQuizTypeStyles, CreeateQuizGridStyles, CreeateQuizGridblankStyles, CreeateQuizPlusButtonStyles, CreeateQuizQuizNameStyles, CreeateQuizSaveButtonStyles, CreeateQuizSubTitleStyles, CreeateQuizTitleStyles, CreeateQuizTypographySaveButtonStyles, CreeateQuizTypographySubTitleStyles, CreeateQuizTypographyTitleStyles, CreeateQuizTypographycaptionStyles, CreeateQuizblankStyles, CreeateQuizpaperBodyStyles, CreeateQuizpaperStyles } from './Styles/CreateQuizPageStyles';
@@ -27,6 +27,7 @@ function CreateQuiz(props) {
   const questTypeMutiple = config.questTypeMutiple;
   const questTypeShortAns = config.questTypeShortAns;
   const [question,setQuestion]= useState([]);
+  const [errorCheck ,setErrorCheck]= useState(false);
   const [Quiz,setQuiz]=useState({
     Quizname: '',
     StartTime: {h: 0, m: 0},
@@ -138,8 +139,13 @@ function CreateQuiz(props) {
     })
   }
   const handleSave=async()=>{
-    console.log('Quiz: ',question);
-    props.onClick(Quiz,question);
+    console.log('Quiz: ',question.length);
+    if(question.length >= Quiz.NumQuest){
+      setErrorCheck(false);
+      props.onClick(Quiz,question);
+    }else{
+      setErrorCheck(true);
+    }
   }
 
   return (
@@ -297,7 +303,8 @@ function CreateQuiz(props) {
                   <Grid container spacing={1}>
                     <Grid item xs={11}>
                       <TextField fullWidth
-                        className='TextfieldBorderRadius'
+                        error={errorCheck}
+                        className={`${errorCheck ? 'RedText' : ''}`}
                         variant="standard"
                         type={'number'}
                         value = {Quiz.NumQuest}
