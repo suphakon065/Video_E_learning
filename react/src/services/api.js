@@ -561,3 +561,11 @@ export const PostVideoQuiz = async (SjId,JsonData) => {
     throw error;
   }
 };
+export const GetAssignmentScore = async (Vid,Uid) => {
+  try{
+    const response = await api.get(Servicesconfig.getAssignmentScore+Vid+'/'+Uid);
+    return response.data;
+  }catch (error) {
+    throw error;
+  }
+};
