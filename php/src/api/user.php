@@ -67,16 +67,24 @@ switch($method){
                 $response = false;
             }
         } else if(($path[3]) && $path[3]=="edituser"){
-            $sql = "UPDATE user SET Sname=:name, User_PIC=:User_PIC WHERE Uid = :Uid";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':Uid',$data->Uid);
-            $stmt->bindParam(':name',$data->name);
-            $stmt->bindParam(':User_PIC', $data->User_PIC);
-            if ($stmt->execute()){
-                $response = ['status' => 1, 'message' => 'Record successfully.'];
-            } else {
-                $response = ['status' => 0, 'message' => 'Failed to record.'];
+            $Uid = $data->Uid;
+            $verification = json_decode(file_get_contents($GetAllUser.$Uid));
+            $result = password_verify($data->Mypassword,$verification->Spassword);
+            if($result == true){
+                $sql = "UPDATE user SET Sname=:name, User_PIC=:User_PIC WHERE Uid = :Uid";
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':Uid',$data->Uid);
+                $stmt->bindParam(':name',$data->name);
+                $stmt->bindParam(':User_PIC', $data->User_PIC);
+                if ($stmt->execute()){
+                    $response = ['status' => 1, 'message' => 'Record successfully.'];
+                } else {
+                    $response = ['status' => 0, 'message' => 'Failed to record.'];
+                }
+            }else {
+                $response = ['status' => 0, 'message' => 'your password incorrect.'];
             }
+
         } else if(($path[3]) && $path[3]=="editpassword"){
             $Uid = $data->Uid;
             $verification = json_decode(file_get_contents($GetAllUser.$Uid));
@@ -93,7 +101,7 @@ switch($method){
                     $response = ['status' => 0, 'message' => 'Failed to record.'];
                 }
             }else {
-                $response = ['status' => 0, 'message' => 'Failed to record.'];
+                $response = ['status' => 0, 'message' => 'your password incorrect.'];
             }
             
         }else if(($path[3]) && $path[3]=="createUser"){
