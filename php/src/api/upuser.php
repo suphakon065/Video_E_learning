@@ -5,9 +5,13 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
 
+function url() {
+    return (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
+}
+
 $response = array();
 $upload_dir = '../users/';
-$server_url = 'http://php-apache/api';
+$server_url = url() . ':8080';
  
 if($_FILES['avatar'])
 {
@@ -22,20 +26,18 @@ if($_FILES['avatar'])
             "error" => true,
             "message" => "Error uploading the file!"
         );
-    }else
-    {   $random_name = $path[3];
-        $upload_name = $upload_dir.strtolower($random_name);
+    }else {
+        $random_name = $path[3];
+        $upload_name = $upload_dir . strtolower($random_name);
      
-        if(move_uploaded_file($avatar_tmp_name , $upload_name)) {
+        if(move_uploaded_file($avatar_tmp_name, $upload_name)) {
             $response = array(
                 "status" => "success",
                 "error" => false,
                 "message" => "File uploaded successfully",
-                "url" => $server_url."/".$upload_name
-              );
-               
-        }else
-        {
+                "url" => $server_url . '/' . $upload_name
+            );
+        }else {
             $response = array(
                 "status" => "error",
                 "error" => true,
@@ -43,14 +45,13 @@ if($_FILES['avatar'])
             );
         }
     }
- 
-}else{
+} else {
     $response = array(
         "status" => "error",
         "error" => true,
         "message" => "No file was sent!"
     );
 }
- 
+
 echo json_encode($response);
 ?>
